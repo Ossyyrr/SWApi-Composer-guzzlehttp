@@ -1,0 +1,9 @@
+version: '3'
+services:
+    webserver:
+        image: php-apache-upgrade 
+        container_name: SWApi
+        ports:
+            - "8888:80"
+        volumes:
+            - ./:/var/www/html
