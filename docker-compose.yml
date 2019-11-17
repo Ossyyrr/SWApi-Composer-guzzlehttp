@@ -2,7 +2,7 @@ version: '3'
 services:
     webserver:
         image: php-apache-upgrade 
-        container_name: SWApi
+        container_name: ejercicio-excepciones
         ports:
             - "8888:80"
         volumes:

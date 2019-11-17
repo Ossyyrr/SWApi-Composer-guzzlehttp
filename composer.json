@@ -2,9 +2,9 @@
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     },
-    "autoload":{
+    "autoload": {
         "psr-4": {
-            
+            "StarWars\\": "src/"
         }
     }
 }
