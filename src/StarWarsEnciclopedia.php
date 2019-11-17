@@ -29,4 +29,33 @@ class StarWarsEnciclopedia
         return $planetas;
     }
 
+    public function getDatos(Pelicula $pelicula): array{
+
+        $client = new Client();
+        $response = $client->request('GET', self::API_URL . 'films/' . $pelicula->getId());
+        $datosPelicula =  json_decode($response->getBody(), true);
+        return $datosPelicula;
+    }
+
+    public function mostrarDatos($datosPelicula): string{
+        $ArrayDatos = [];
+
+        echo "<ul>";
+        foreach ($datosPelicula as $k => $v) {
+            if (is_array (  $v )){
+                echo "<li>" . $k . "</li>";
+                echo "<ul>";
+                foreach ($v as $k2 => $v2) {
+                    echo "<li>" . $v2. "</li>";
+                }
+                echo "</ul>";
+            }else{
+                $ArrayDatos[] =  '<option value="'.$k.'">';
+            }
+        }
+        echo "</ul>";
+        $ArrayDatosAString = implode("",$ArrayDatos);
+        return $ArrayDatosAString;
+    }
+
 }
